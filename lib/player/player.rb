@@ -1,13 +1,12 @@
 class Player
 
-  def initialize(symbol, board)
-    @symbol = symbol
+  def initialize(board)
     @board = board
   end
 
   # Place a piece for the player
   def place(position)
-    unless @board.empty_place? postion
+    unless @board.empty_place? position
       puts 'Invalid entry.'
       return
     end
