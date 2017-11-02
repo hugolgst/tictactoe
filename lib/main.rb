@@ -6,9 +6,11 @@ require_relative 'board'
 @player = Player.new(@board)
 @ai = MinMax.new('O')
 
+puts [*'1'..'9'].map{ |i| "[#{i}]" }.each_slice(3).to_a.map(&:join).join("\n")
+
 while true
   position = gets.to_i
-  @player.place(position)
+  @player.place(position-1)
 
   puts @board.draw
 
