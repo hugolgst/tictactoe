@@ -1,4 +1,4 @@
-require_relative 'player'
+require_relative 'player/player'
 require_relative 'board'
 
 @board = Board.new

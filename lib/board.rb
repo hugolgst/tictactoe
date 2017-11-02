@@ -16,13 +16,19 @@ class Board
   end
 
   # Check if the game have a win
-  def win?
+  def win_combination
     COMBINATIONS.each do |combination|
       first, second, third = combination
 
-      return true unless empty_place?(first) && empty_place?(second) && empty_place?(third)
+      return combination if @board[first] == @board[second] && @board[second] == @board[third] && !@board[first].nil?
     end
-    return false
+    false
+  end
+
+  # Check if the player is the winner
+  def winner?(player)
+    combination = win_combination
+    return combination ? @board[combination[0]] : false
   end
 
   # Retrieves if the parameter is empty
