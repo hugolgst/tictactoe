@@ -22,7 +22,7 @@ class Board
 
       return true unless empty_place?(first) && empty_place?(second) && empty_place?(third)
     end
-    false
+    return false
   end
 
   # Retrieves if the parameter is empty
@@ -33,7 +33,7 @@ class Board
   # Retrieves an array of available places indexes
   def available_spaces
     availlable = []
-    @board.each_index |i|
+    @board.each_index do |i|
       availlable << i if @board[i].nil?
     end
   end
