@@ -26,7 +26,7 @@ class Board
   end
 
   # Retrieves if the parameter is empty
-  def empty_place? place
+  def empty_place?(place)
     @board[place].nil?
   end
 
