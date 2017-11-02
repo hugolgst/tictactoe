@@ -4,7 +4,7 @@ require_relative 'board'
 
 @board = Board.new
 @player = Player.new(@board)
-@ai = MinMax.new
+@ai = MinMax.new('O')
 
 while true
   position = gets.to_i
