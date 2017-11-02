@@ -26,9 +26,9 @@ class Board
   end
 
   # Check if the player is the winner
-  def winner?(player)
+  def winner?(player_symbol)
     combination = win_combination
-    return combination ? @board[combination[0]] : false
+    return combination && @board[combination[0]] == player_symbol
   end
 
   # Retrieves if the parameter is empty

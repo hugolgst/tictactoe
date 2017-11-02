@@ -15,8 +15,4 @@ class Player
     @board.place(position, 'X')
   end
 
-  def symbol
-    'X'
-  end
-
 end
