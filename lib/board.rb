@@ -20,8 +20,9 @@ class Board
     COMBINATIONS.each do |combination|
       first, second, third = combination
 
-      return true if empty_place?(first) && empty_place?(second) && empty_place?(third)
+      return true unless empty_place?(first) && empty_place?(second) && empty_place?(third)
     end
+    false
   end
 
   # Retrieves if the parameter is empty
