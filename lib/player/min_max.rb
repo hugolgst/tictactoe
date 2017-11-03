@@ -14,9 +14,8 @@ class MinMax
 
     # Leave time for the algorithm
     puts 'Thinking..'
-    sleep 1
 
-    board.place(@choice==3?5:@choice, @symbol)
+    board.place(@choice, @symbol)
 
     win_checker(board)
   end
