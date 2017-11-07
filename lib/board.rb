@@ -27,8 +27,12 @@ class Board
     COMBINATIONS.each do |combination|
       first, second, third = combination
 
-      return true if @board[first] & @board[second] & @board[third] == player.symbol
+      if @board[first] == @board[second] && @board[second] == @board[third] && @board[first] == player
+        return true
+      end
     end
+
+    return false
   end
 
   # Retrieves if the parameter is empty
@@ -49,6 +53,11 @@ class Board
   # Draw the board game
   def draw
     puts @board.map{ |e| "[#{e.nil? ? " " : e}]" }.each_slice(3).to_a.map(&:join).join("\n")
+  end
+
+  def initialize_dup(other)
+    super(other)
+    @board = other.board.dup
   end
 
 end
