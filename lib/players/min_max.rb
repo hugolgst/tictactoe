@@ -24,8 +24,6 @@ class MinMax < Player
     new_board.available_spaces.each do |space|
       new_board.place(space, player)
       moves[space] = minmax(new_board, opponent(player), depth)
-      puts new_board.turn
-      new_board.draw
     end
 
     best_score = 0
