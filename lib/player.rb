@@ -6,7 +6,7 @@ class Player
     @symbol = symbol
   end
 
-  # Place a new piece for the player
+  # Place a new piece for the players
   def place(board, position)
     board.place(position, @symbol)
   end

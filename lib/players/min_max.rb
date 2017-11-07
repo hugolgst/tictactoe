@@ -30,12 +30,12 @@ class MinMax
     return 0
   end
 
-  # Retrieves the opponent of the parameter player
+  # Retrieves the opponent of the parameter players
   def opponent(player)
     player == 'O' ? 'X' : 'O'
   end
 
-  # Find the best move for the player
+  # Find the best move for the players
   def best_move(piece, scores)
   	scores = scores.compact
   	return piece == @symbol ? scores.max_by { |_k, v| v } : scores.min_by { |_k, v| v }

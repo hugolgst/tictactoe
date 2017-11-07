@@ -17,7 +17,7 @@ class Board
 		@board[position] = piece
 	end
 
-  # Check if the parameter player is the winner
+  # Check if the parameter players is the winner
   def winner?(player)
     COMBINATIONS.each do |combination|
       first, second, third = combination
