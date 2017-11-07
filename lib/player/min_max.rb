@@ -6,35 +6,6 @@ class MinMax
     @symbol = symbol
   end
 
-  # Play for the ai
-  def play(board)
-    win_checker(board)
-
-    minmax(board, @symbol, 0)
-
-    # Leave time for the algorithm
-    puts 'Thinking..'
-
-    board.place(@choice, @symbol)
-
-    win_checker(board)
-  end
-
-  def win_checker(board)
-    win_checker = minmax(board, @symbol, 0)
-    puts win_checker
-    if win_checker == 10 || win_checker == -10 || win_checker == 0
-      # Show that it is really a victory
-      puts board.draw
-      
-      puts 'You lose..' if win_checker == 10
-      puts 'YOU WON' if win_checker == -10
-      puts 'It is a draw.' if win_checker == 0
-
-      exit
-    end
-  end
-
   # MinMax algorithm
   def minmax(board, player, depth)
     return score(board, depth) if board.win_combination
