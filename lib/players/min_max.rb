@@ -10,7 +10,6 @@ class MinMax < Player
 
   def minmax(board, player, depth)
     new_board = board.dup
-    new_board.change_turn
     if new_board.winner?(@symbol)
       return 10 - depth
     elsif new_board.winner?(opponent(@symbol))
@@ -28,10 +27,12 @@ class MinMax < Player
 
     best_score = 0
     if board.turn == @symbol
-      @best_move, best_score = moves.max_by{ |k, v| v }
-    else
       @best_move, best_score = moves.min_by{ |k, v| v }
+    else
+      @best_move, best_score = moves.max_by{ |k, v| v }
     end
+
+    new_board.change_turn
 
     return best_score
   end
