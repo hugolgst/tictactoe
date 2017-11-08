@@ -32,7 +32,7 @@ class Board
       end
     end
 
-    return false
+    false
   end
 
   # Retrieves if the parameter is empty
@@ -52,7 +52,8 @@ class Board
 
   # Draw the board game
   def draw
-    puts @board.map{ |e| "[#{e.nil? ? " " : e}]" }.each_slice(3).to_a.map(&:join).join("\n")
+    lines = @board.map { |e| "[#{e.nil? ? ' ' : e}]" } .each_slice(3).to_a
+    puts lines.map(&:join) * '\n'
   end
 
   def initialize_dup(other)

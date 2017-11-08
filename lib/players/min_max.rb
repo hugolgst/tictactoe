@@ -15,7 +15,7 @@ class MinMax < Player
       return 10 - depth
     elsif new_board.winner?(opponent(@symbol))
       return -10 + depth
-    elsif new_board.available_spaces.size == 0
+    elsif new_board.available_spaces.empty?
       return 0
     end
 
@@ -29,12 +29,12 @@ class MinMax < Player
 
     best_score = 0
     if board.turn == @symbol
-      @best_move, best_score = moves.max_by{ |k, v| v }
+      @best_move, best_score = moves.max_by { |_, v| v }
     else
-      @best_move, best_score = moves.min_by{ |k, v| v }
+      @best_move, best_score = moves.min_by { |_, v| v }
     end
 
-    return best_score
+    best_score
   end
 
   def opponent(player)
