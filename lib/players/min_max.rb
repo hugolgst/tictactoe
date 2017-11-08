@@ -3,13 +3,14 @@ require_relative '../player'
 class MinMax < Player
 
   def play(board)
-    minmax(board, opponent(@symbol), 0)
+    minmax(board, @symbol, 0)
     place(board, @best_move)
     board.draw
   end
 
   def minmax(board, player, depth)
     new_board = board.dup
+    new_board.change_turn
     if new_board.winner?(@symbol)
       return 10 - depth
     elsif new_board.winner?(opponent(@symbol))
@@ -21,18 +22,17 @@ class MinMax < Player
     depth += 1
     moves = {}
     new_board.available_spaces.each do |space|
-      new_board.place(space, player)
-      moves[space] = minmax(new_board, opponent(player), depth)
+      new_board_ = new_board.dup
+      new_board_.place(space, player)
+      moves[space] = minmax(new_board_, opponent(player), depth)
     end
 
     best_score = 0
     if board.turn == @symbol
-      @best_move, best_score = moves.min_by{ |k, v| v }
-    else
       @best_move, best_score = moves.max_by{ |k, v| v }
+    else
+      @best_move, best_score = moves.min_by{ |k, v| v }
     end
-
-    new_board.change_turn
 
     return best_score
   end
