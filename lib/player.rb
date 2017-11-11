@@ -12,4 +12,8 @@ class Player
     board.change_turn
   end
 
+  def play
+    raise 'Not added'
+  end
+
 end

@@ -13,6 +13,12 @@ class Board
     @turn = turn
   end
 
+  def initialize_dup(other)
+    super(other)
+    @board = other.board.dup
+  end
+
+  # Change the game turn
   def change_turn
     @turn = turn == 'O' ? 'X' : 'O'
   end
@@ -54,11 +60,6 @@ class Board
   def draw
     lines = @board.map { |e| "[#{e.nil? ? ' ' : e}]" } .each_slice(3).to_a
     puts lines.map(&:join) * '\n'
-  end
-
-  def initialize_dup(other)
-    super(other)
-    @board = other.board.dup
   end
 
 end
