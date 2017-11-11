@@ -59,7 +59,7 @@ class Board
   # Draw the board game
   def draw
     lines = @board.map { |e| "[#{e.nil? ? ' ' : e}]" } .each_slice(3).to_a
-    puts lines.map(&:join) * '\n'
+    puts lines.map(&:join)
   end
 
 end
