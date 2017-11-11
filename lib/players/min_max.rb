@@ -11,13 +11,10 @@ class MinMax < Player
   def minmax(board, player, depth)
     new_board = board.dup
     new_board.change_turn
-    if new_board.winner?(@symbol)
-      return 10 - depth
-    elsif new_board.winner?(opponent(@symbol))
-      return -10 + depth
-    elsif new_board.available_spaces.empty?
-      return 0
-    end
+
+    return 10 - depth if new_board.winner?(@symbol)
+    return -10 + depth if new_board.winner?(opponent(@symbol))
+    return 0 if new_board.available_spaces.empty?
 
     depth += 1
     moves = {}

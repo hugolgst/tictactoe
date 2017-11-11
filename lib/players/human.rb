@@ -5,10 +5,11 @@ class Human < Player
   def play(board)
     position = 0
 
+    puts "It's your turn, enter a position."
     loop do
-      puts 'Please enter a valid position.'
       position = gets.to_i
       break if board.empty_place?(position)
+      puts 'Please enter a valid position'
     end
 
     place(board, position)

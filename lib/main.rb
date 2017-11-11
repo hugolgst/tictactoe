@@ -6,6 +6,9 @@ def opponent(symbol)
   symbol == 'O' ? 'X' : 'O'
 end
 
+puts "Welcome to the tic tac toe game, you can't beat me but you can try.",
+     'I am going to ask you some simple questions.', ''
+
 loop do
   puts 'Which symbol do you want? (O/X)'
   @player_symbol = gets.chomp.upcase
@@ -22,9 +25,9 @@ end
 @human = Human.new(@player_symbol)
 @ai = MinMax.new(opponent(@player_symbol))
 
-if @turn == 'YOU'
-  @ai.play(@board)
-end
+puts '', "Let's go, good luck."
+
+@ai.play(@board) if @turn == 'YOU'
 
 loop do
   @human.play(@board)
