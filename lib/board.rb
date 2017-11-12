@@ -58,8 +58,15 @@ class Board
 
   # Draw the board game
   def draw
-    lines = @board.map { |e| "[#{e.nil? ? ' ' : e}]" } .each_slice(3).to_a
-    puts lines.map(&:join)
+    up, middle, down = '╔═══╦═══╦═══╗', '╠═══╬═══╬═══╣', '╚═══╩═══╩═══╝'
+
+    lines = @board
+              .map { |i| " #{i.nil? ? ' ' : i} " }
+              .each_slice(3).to_a
+              .map { |line| "║#{line.join('║')}║" }
+              .join("\n#{middle}\n")
+
+    puts up, lines, down
   end
 
 end

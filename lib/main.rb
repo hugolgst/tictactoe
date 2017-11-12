@@ -31,6 +31,6 @@ puts '', "Let's go, good luck."
 
 loop do
   @human.play(@board)
-  puts '-' * 9
+  puts
   @ai.play(@board)
 end
