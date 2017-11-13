@@ -7,7 +7,7 @@ Firstly clone the repository:
 $ git clone https://github.com/AnanaGame/tictactoe.git
 ```
 
-Then go to lib folder and start the `main.rb`
+And start the `main.rb`
 ```
-$ ruby main.rb
+$ ruby tictactoe/lib/main.rb
 ```
