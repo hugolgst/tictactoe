@@ -8,7 +8,7 @@ class Human < Player
     puts "It's your turn, enter a position."
     loop do
       position = gets.to_i
-      break if board.empty_place?(position) && (0..9) === position 
+      break if board.empty_place?(position) && (0..8) === position 
       puts 'Please enter a valid position'
     end
 
