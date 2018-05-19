@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    hue-rb (1.0.0)
+    term-art (1.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hue-rb
+  term-art
+
+BUNDLED WITH
+   1.16.1

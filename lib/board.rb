@@ -1,5 +1,6 @@
-class Board
+require 'term-art'
 
+class Board
   COMBINATIONS = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8],
     [0, 3, 6], [1, 4, 7], [2, 5, 8],
@@ -58,15 +59,8 @@ class Board
 
   # Draw the board game
   def draw
-    up, middle, down = '╔═══╦═══╦═══╗', '╠═══╬═══╬═══╣', '╚═══╩═══╩═══╝'
-
-    lines = @board
-              .map { |i| " #{i.nil? ? ' ' : i} " }
-              .each_slice(3).to_a
-              .map { |line| "║#{line.join('║')}║" }
-              .join("\n#{middle}\n")
-
-    puts up, lines, down
+    chart_board = @board.map { |i| " #{i.nil? ? ' ' : i} " }.each_slice(3).to_a
+    chart = TermArt::Chart.new(chart_board)
+    puts chart.draw(style: :simple, color: :red)
   end
-
 end

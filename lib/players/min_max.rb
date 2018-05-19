@@ -1,7 +1,6 @@
 require_relative '../player'
 
 class MinMax < Player
-
   def play(board)
     minmax(board, @symbol, 0)
     place(board, @best_move)
@@ -37,5 +36,4 @@ class MinMax < Player
   def opponent(player)
     player == 'O' ? 'X' : 'O'
   end
-
 end
